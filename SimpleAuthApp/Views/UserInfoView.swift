@@ -2,16 +2,18 @@ import SwiftUI
 
 struct UserInfoView: View {
     @EnvironmentObject var authService: AuthService
+    /// When false, content is shown without wrapping in NavigationStack (e.g. when pushed from LandingView).
+    var embeddedInNavigationStack: Bool = true
+    
     @State private var displayName: String = ""
     @State private var showChangePassword = false
     @State private var currentPassword = ""
     @State private var newPassword = ""
     @State private var confirmNewPassword = ""
     
-    var body: some View {
-        if #available(iOS 16.0, *) {
-            NavigationStack {
-                ZStack {
+    @available(iOS 16.0, *)
+    private var profileContent: some View {
+        ZStack {
                     LinearGradient(
                         colors: [Color(red: 0.95, green: 0.97, blue: 1.0), Color(red: 0.9, green: 0.94, blue: 1.0)],
                         startPoint: .top,
@@ -22,10 +24,14 @@ struct UserInfoView: View {
                     ScrollView {
                         VStack(spacing: 32) {
                             if let user = authService.currentUser {
-                                Image(systemName: "person.crop.circle.fill")
-                                    .font(.system(size: 80))
-                                    .foregroundStyle(.blue.gradient)
-                                    .padding(.top, 32)
+                                if #available(iOS 16.0, *) {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .font(.system(size: 80))
+                                        .foregroundStyle(.blue.gradient)
+                                        .padding(.top, 32)
+                                } else {
+                                    // Fallback on earlier versions
+                                }
                                 
                                 VStack(alignment: .leading, spacing: 20) {
                                     VStack(alignment: .leading, spacing: 8) {
@@ -139,9 +145,25 @@ struct UserInfoView: View {
                 .onChange(of: authService.currentUser?.name) { name in
                     if let name { displayName = name }
                 }
+    }
+    
+    var body: some View {
+        if #available(iOS 16.0, *) {
+            if embeddedInNavigationStack {
+                NavigationStack {
+                    profileContent
+                }
+            } else {
+                profileContent
             }
         } else {
-            // Fallback on earlier versions
+            if #available(iOS 16.0, *) {
+                NavigationStack {
+                    profileContent
+                }
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

@@ -6,7 +6,11 @@ struct ContentView: View {
     var body: some View {
         Group {
             if authService.isAuthenticated {
-                UserInfoView()
+                if #available(iOS 16.0, *) {
+                    LandingView()
+                } else {
+                    UserInfoView()
+                }
             } else {
                 if #available(iOS 16.0, *) {
                     LoginView()

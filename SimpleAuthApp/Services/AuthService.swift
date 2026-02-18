@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import KlaviyoSwift
 
 @MainActor
 final class AuthService: ObservableObject {
@@ -16,10 +17,29 @@ final class AuthService: ObservableObject {
            let user = UserStore.findUser(byId: userId) {
             currentUser = user
             isAuthenticated = true
+            setKlaviyoProfile(for: user)
         } else {
             currentUser = nil
             isAuthenticated = false
         }
+    }
+    
+    /// Sends the user's email and name to Klaviyo so the SDK can identify the profile.
+    private func setKlaviyoProfile(for user: User) {
+        let (firstName, lastName) = splitName(user.name)
+        let profile = Profile(
+            email: user.email,
+            firstName: firstName,
+            lastName: lastName
+        )
+        KlaviyoSDK().set(profile: profile)
+    }
+    
+    private func splitName(_ name: String) -> (String, String) {
+        let parts = name.trimmingCharacters(in: .whitespaces).split(separator: " ", maxSplits: 1, omittingEmptySubsequences: true)
+        let first = parts.first.map(String.init) ?? ""
+        let last = parts.count > 1 ? String(parts[1]) : ""
+        return (first, last)
     }
     
     func signUp(name: String, email: String, password: String) -> Bool {
@@ -43,7 +63,13 @@ final class AuthService: ObservableObject {
         }
         currentUser = user
         isAuthenticated = KeychainService.saveSession(userId: user.id.uuidString)
+        setKlaviyoProfile(for: user)
         successMessage = "Account created successfully."
+        let registerEvent = Event(
+            name: .customEvent("User Registered"),
+            properties: ["dummykey": "dummyvalue"]
+        )
+        KlaviyoSDK().create(event: registerEvent)
         return true
     }
     
@@ -60,6 +86,13 @@ final class AuthService: ObservableObject {
         }
         currentUser = user
         isAuthenticated = KeychainService.saveSession(userId: user.id.uuidString)
+        setKlaviyoProfile(for: user)
+        let loginEvent = Event(
+            name: .customEvent("User Login"),
+            properties: ["dummykey": "dummyvalue"],
+            value: 0
+        )
+        KlaviyoSDK().create(event: loginEvent)
         successMessage = "Welcome back!"
         return true
     }
@@ -79,6 +112,7 @@ final class AuthService: ObservableObject {
         user.name = trimmed
         UserStore.updateUser(user)
         currentUser = user
+        setKlaviyoProfile(for: user)
         successMessage = "Profile updated."
     }
     
