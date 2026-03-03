@@ -14,7 +14,11 @@ struct ProfileView: View {
     var body: some View {
         Form {
             Section("Account") {
-                LabeledContent("Username", value: username)
+                if #available(iOS 16.0, *) {
+                    LabeledContent("Username", value: username)
+                } else {
+                    // Fallback on earlier versions
+                }
             }
 
             Section("Change Password") {
@@ -61,7 +65,11 @@ struct ProfileView: View {
 }
 
 #Preview {
-    NavigationStack {
-        ProfileView(username: "user@example.com", password: .constant("oldpass"))
+    if #available(iOS 16.0, *) {
+        NavigationStack {
+            ProfileView(username: "user@example.com", password: .constant("oldpass"))
+        }
+    } else {
+        // Fallback on earlier versions
     }
 }
