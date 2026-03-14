@@ -18,6 +18,12 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding()
 
+                    NavigationLink("View Products") {
+                        ProductListView()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding(.top, 8)
+
                     Spacer()
 
                     Button("Log Out") {

@@ -12,6 +12,9 @@
 		B10000000000000000000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000003 /* HomeView.swift */; };
 		B10000000000000000000004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000004 /* Assets.xcassets */; };
 		B10000000000000000000005 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000006 /* ProfileView.swift */; };
+		B10000000000000000000007 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000007 /* Product.swift */; };
+		B10000000000000000000008 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000008 /* ProductListView.swift */; };
+		B10000000000000000000009 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000009 /* ProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		B20000000000000000000004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B20000000000000000000005 /* LoginApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20000000000000000000006 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B20000000000000000000007 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B20000000000000000000008 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		B20000000000000000000009 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,7 @@
 			isa = PBXGroup;
 			children = (
 				B20000000000000000000001 /* LoginAppApp.swift */,
+				B30000000000000000000005 /* Models */,
 				B30000000000000000000002 /* Views */,
 				B20000000000000000000004 /* Assets.xcassets */,
 			);
@@ -50,8 +57,18 @@
 				B20000000000000000000002 /* LoginRegisterView.swift */,
 				B20000000000000000000003 /* HomeView.swift */,
 				B20000000000000000000006 /* ProfileView.swift */,
+				B20000000000000000000008 /* ProductListView.swift */,
+				B20000000000000000000009 /* ProductDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B30000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B20000000000000000000007 /* Product.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B30000000000000000000003 /* Products */ = {
@@ -143,6 +160,9 @@
 				B10000000000000000000002 /* LoginRegisterView.swift in Sources */,
 				B10000000000000000000003 /* HomeView.swift in Sources */,
 				B10000000000000000000005 /* ProfileView.swift in Sources */,
+				B10000000000000000000007 /* Product.swift in Sources */,
+				B10000000000000000000008 /* ProductListView.swift in Sources */,
+				B10000000000000000000009 /* ProductDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
