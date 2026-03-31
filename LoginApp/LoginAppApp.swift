@@ -1,13 +1,12 @@
 import SwiftUI
 import UIKit
+import KlaviyoSwift
 
 /// UIKit app lifecycle bridge for SwiftUI. Use this for push registration, notification delegates,
 /// and other `UIApplicationDelegate` callbacks when you wire up remote notifications.
 final class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
-    ) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        KlaviyoSDK().initialize(with: "SC73Zx")
         return true
     }
 

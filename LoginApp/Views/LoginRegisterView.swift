@@ -1,4 +1,5 @@
 import SwiftUI
+import KlaviyoSwift
 
 /// First screen: simple Login / Register. No backend; tapping Continue sets isLoggedIn and stores username/password.
 struct LoginRegisterView: View {
@@ -36,6 +37,19 @@ struct LoginRegisterView: View {
                         username = email
                         password = inputPassword
                         isLoggedIn = true
+                        let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+                        
+                        let profile = Profile(
+                            email: trimmedEmail,
+                            firstName: nil,   // or real values when you have them
+                            lastName: nil
+                        )
+                        
+                        let loggedInEvent = Event(name: .CustomEvent("User Logged In"),
+                            properties: ["test": "test value"]
+                                          )
+                        KlaviyoSDK().set(profile: profile)
+                        KlaviyoSDK().create(event: loggedInEvent)
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.top, 8)

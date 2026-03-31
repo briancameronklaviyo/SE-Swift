@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0000000000000000000003 /* KlaviyoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB0000000000000000000002 /* KlaviyoSwift */; };
 		B10000000000000000000001 /* LoginAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000001 /* LoginAppApp.swift */; };
 		B10000000000000000000002 /* LoginRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000002 /* LoginRegisterView.swift */; };
 		B10000000000000000000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000003 /* HomeView.swift */; };
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0000000000000000000003 /* KlaviyoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,9 @@
 			dependencies = (
 			);
 			name = LoginApp;
+			packageProductDependencies = (
+				BB0000000000000000000002 /* KlaviyoSwift */,
+			);
 			productName = LoginApp;
 			productReference = B20000000000000000000005 /* LoginApp.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +136,9 @@
 				Base,
 			);
 			mainGroup = B30000000000000000000004;
+			packageReferences = (
+				BB0000000000000000000001 /* XCRemoteSwiftPackageReference "klaviyo-swift-sdk" */,
+			);
 			productRefGroup = B30000000000000000000003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BB0000000000000000000001 /* XCRemoteSwiftPackageReference "klaviyo-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/klaviyo/klaviyo-swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BB0000000000000000000002 /* KlaviyoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KlaviyoSwift;
+			package = BB0000000000000000000001 /* XCRemoteSwiftPackageReference "klaviyo-swift-sdk" */;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B70000000000000000000001 /* Project object */;
 }
