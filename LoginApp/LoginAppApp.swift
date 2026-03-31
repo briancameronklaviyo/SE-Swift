@@ -2,6 +2,8 @@ import SwiftUI
 
 @main
 struct LoginAppApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     /// Tracks whether the user has completed login/register (barebones: no real auth).
     @State private var isLoggedIn = false
     @State private var username = ""
