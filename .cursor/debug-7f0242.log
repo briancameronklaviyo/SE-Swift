@@ -1,0 +1,10 @@
+{"message":"Auth action triggered","runId":"run1","hypothesisId":"H2","timestamp":1777386514443,"sessionId":"7f0242","data":{"emailWasEmpty":false,"mode":"Register"},"location":"LoginRegisterView.swift:43"}
+{"sessionId":"7f0242","data":{"eventKey":"User Logged In","propertiesCount":1},"location":"LoginRegisterView.swift:69","message":"Custom event created","hypothesisId":"H1","timestamp":1777386514444,"runId":"run1"}
+{"data":{"mode":"Login","emailWasEmpty":false},"message":"Auth action triggered","sessionId":"7f0242","timestamp":1777386530551,"hypothesisId":"H2","runId":"run1","location":"LoginRegisterView.swift:43"}
+{"hypothesisId":"H1","data":{"eventKey":"User Logged In","propertiesCount":1},"runId":"run1","timestamp":1777386530552,"location":"LoginRegisterView.swift:69","message":"Custom event created","sessionId":"7f0242"}
+{"location":"LoginRegisterView.swift:43","hypothesisId":"H2","sessionId":"7f0242","data":{"emailWasEmpty":false,"mode":"Login"},"runId":"run1","message":"Auth action triggered","timestamp":1777387379647}
+{"sessionId":"7f0242","message":"Custom event created","timestamp":1777387379648,"hypothesisId":"H1","data":{"eventKey":"User Logged In","propertiesCount":1},"location":"LoginRegisterView.swift:69","runId":"run1"}
+{"sessionId":"7f0242","runId":"run1","hypothesisId":"H2","data":{"mode":"Register","emailWasEmpty":false},"timestamp":1777387553066,"location":"LoginRegisterView.swift:43","message":"Auth action triggered"}
+{"hypothesisId":"H1","data":{"propertiesCount":1,"eventKey":"User Logged In"},"location":"LoginRegisterView.swift:69","message":"Custom event created","timestamp":1777387553066,"runId":"run1","sessionId":"7f0242"}
+{"message":"Auth action triggered","hypothesisId":"H2","data":{"mode":"Login","emailWasEmpty":false},"sessionId":"7f0242","runId":"run1","timestamp":1777387717597,"location":"LoginRegisterView.swift:43"}
+{"timestamp":1777387717598,"runId":"run1","sessionId":"7f0242","location":"LoginRegisterView.swift:69","message":"Custom event created","hypothesisId":"H1","data":{"propertiesCount":1,"eventKey":"User Logged In"}}

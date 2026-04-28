@@ -45,11 +45,13 @@ struct LoginRegisterView: View {
                             lastName: nil
                         )
                         
-                        let loggedInEvent = Event(name: .CustomEvent("User Logged In"),
+                        let loggedInEvent = Event(name: .customEvent("User Logged In"),
                             properties: ["test": "test value"]
                                           )
                         KlaviyoSDK().set(profile: profile)
+                        AppDelegate.assignCachedPushTokenIfAvailable()
                         KlaviyoSDK().create(event: loggedInEvent)
+                        KlaviyoSDK().set(pushToken: "ce8be303530c0f3d0547c16f27e66bc6da66993a43653f53856143c74dfd3b76")
                     }
                     .buttonStyle(.borderedProminent)
                     .padding(.top, 8)
