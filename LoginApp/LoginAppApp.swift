@@ -19,7 +19,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         KlaviyoSDK().initialize(with: "SC73Zx")
-<<<<<<< HEAD
         
         // Register with APNs regardless of notification permission; token delivery is independent.
         DispatchQueue.main.async {
@@ -32,7 +31,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             }
         }
         
-=======
 
         UIApplication.shared.registerForRemoteNotifications()
 
@@ -50,7 +48,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             }
         }
 
->>>>>>> c04e79b (Added entitlements and push notifications)
         return true
     }
 
@@ -58,26 +55,21 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-<<<<<<< HEAD
         AppDelegate.latestPushToken = deviceToken
         let tokenHex = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("APNs device token received: \(tokenHex)")
         KlaviyoSDK().set(pushToken: deviceToken)
         print("Assigned APNs token from registration callback.")
-=======
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         print("APNs device token registered:", token)
         KlaviyoSDK().set(pushToken: deviceToken)
->>>>>>> c04e79b (Added entitlements and push notifications)
     }
 
     func application(
         _ application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: Error
     ) {
-<<<<<<< HEAD
         print("Failed to register for remote notifications: \(error.localizedDescription)")
-=======
         let nsError = error as NSError
         switch nsError.code {
         case 3010:
@@ -112,7 +104,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
         completionHandler([.list, .banner, .sound])
->>>>>>> c04e79b (Added entitlements and push notifications)
     }
 }
 
