@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB0000000000000000000003 /* KlaviyoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB0000000000000000000002 /* KlaviyoSwift */; };
 		B10000000000000000000001 /* LoginAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000001 /* LoginAppApp.swift */; };
 		B10000000000000000000002 /* LoginRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000002 /* LoginRegisterView.swift */; };
 		B10000000000000000000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000003 /* HomeView.swift */; };
@@ -16,6 +15,7 @@
 		B10000000000000000000007 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000007 /* Product.swift */; };
 		B10000000000000000000008 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000008 /* ProductListView.swift */; };
 		B10000000000000000000009 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20000000000000000000009 /* ProductDetailView.swift */; };
+		BB0000000000000000000003 /* KlaviyoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BB0000000000000000000002 /* KlaviyoSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +28,8 @@
 		B20000000000000000000007 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B20000000000000000000008 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		B20000000000000000000009 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		B2000000000000000000000A /* LoginApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LoginApp.entitlements; sourceTree = "<group>"; };
+		B2000000000000000000000B /* LoginAppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LoginAppRelease.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,8 @@
 				B30000000000000000000005 /* Models */,
 				B30000000000000000000002 /* Views */,
 				B20000000000000000000004 /* Assets.xcassets */,
+				B2000000000000000000000A /* LoginApp.entitlements */,
+				B2000000000000000000000B /* LoginAppRelease.entitlements */,
 			);
 			path = LoginApp;
 			sourceTree = "<group>";
@@ -124,6 +128,11 @@
 				TargetAttributes = {
 					B50000000000000000000001 = {
 						CreatedOnToolsVersion = 15.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -189,6 +198,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -198,7 +208,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.loginapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klaviyo.SDKTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -211,13 +221,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+<<<<<<< HEAD
 				CODE_SIGN_ENTITLEMENTS = LoginApp/LoginApp.entitlements;
+=======
+				CODE_SIGN_ENTITLEMENTS = LoginApp/LoginAppRelease.entitlements;
+>>>>>>> c04e79b (Added entitlements and push notifications)
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -227,7 +242,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.loginapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klaviyo.SDKTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -381,8 +396,8 @@
 /* Begin XCSwiftPackageProductDependency section */
 		BB0000000000000000000002 /* KlaviyoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = KlaviyoSwift;
 			package = BB0000000000000000000001 /* XCRemoteSwiftPackageReference "klaviyo-swift-sdk" */;
+			productName = KlaviyoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
